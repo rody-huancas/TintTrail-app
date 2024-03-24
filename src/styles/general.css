@@ -9,3 +9,7 @@ body {
     scroll-behavior: auto;
   }
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+}

@@ -1,9 +1,11 @@
+import Hero from "@components/hero/Hero";
+
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+    <section className="flex items-center justify-between">
+      <Hero />
+    </section>
   )
 }
 
-export default Home
+export default Home;
