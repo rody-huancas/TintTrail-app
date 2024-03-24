@@ -3,7 +3,7 @@ import { CardColorInterface } from "intefaces/interfaces";
 
 export const CardColor: React.FC<CardColorInterface> = ({ shade }) => {
   return (
-    <div className="bg-white p-2 rounded-lg flex flex-col gap-3">
+    <div className="bg-white p-2 rounded-lg flex flex-col items-center gap-3">
       <div
         className="w-28 h-28 rounded-lg border border-white/50"
         style={{ backgroundColor: shade }}

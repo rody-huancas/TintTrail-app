@@ -15,15 +15,10 @@ const SelectColor = () => {
   useEffect(() => {
     const shades = calculateShades(selectedColor);
     setColorShades(shades);
-  }, []);
-
-  useEffect(() => {
-    const shades = calculateShades(selectedColor);
-    setColorShades(shades);
   }, [selectedColor]);
 
   return (
-    <div className="flex flex-col gap-10 my-10">
+    <div id="selectColor" className="flex flex-col gap-10 my-10 px-10 lg:px-0">
       <h2 className="text-center uppercase text-3xl font-black">
         Vamos a generar tu paleta de colores!
       </h2>
@@ -33,7 +28,7 @@ const SelectColor = () => {
           <input type="color" className="h-8 w-8 appearance-none border-none focus:outline-none" value={selectedColor} onChange={handleColorChange} />
         </div>
       </div>
-      <div className="flex justify-center gap-5 bg-transparent py-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-x-5 gap-y-7 bg-transparent py-5">
         {colorShades.map((shade, index) => (
           <CardColor key={index} shade={shade} />
         ))}
