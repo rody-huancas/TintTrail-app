@@ -28,7 +28,8 @@ const Header = () => {
   return (
     <header className="w-full py-16 flex items-center justify-center">
       <div className={classNames("max-w-6xl w-full px-5 flex items-center justify-between py-5 fixed top-0 z-10 mt-5", { "backdrop-blur-xl rounded-xl": scrolled })}>
-        <Link to={"/"} className="font-extrabold text-2xl text-[#80aaff]">
+        <Link to={"/"} className="font-extrabold text-2xl text-[#80aaff] flex items-center gap-2">
+          <img src="/images/icon.png" alt="icon" className="w-10" />
           TintTrail
         </Link>
 
