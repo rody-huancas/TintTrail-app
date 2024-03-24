@@ -8,7 +8,8 @@ export const CardColor: React.FC<CardColorInterface> = ({ shade }) => {
         className="w-28 h-28 rounded-lg border border-white/50"
         style={{ backgroundColor: shade }}
       ></div>
-      <ButtonCopy />
+      <span className="text-gray-700 text-center">{shade}</span>
+      <ButtonCopy color={shade} />
     </div>
   );
 };
