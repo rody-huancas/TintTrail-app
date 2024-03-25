@@ -13,7 +13,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) setScrolled(true);
+      if (window.scrollY > 20) setScrolled(true);
       else setScrolled(false);
     };
     
@@ -22,7 +22,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="w-full py-20 flex items-center justify-center">
+    <header className="w-full py-20 xl:py-14 flex items-center justify-center">
       <div className={classNames("max-w-6xl w-full px-5 flex flex-col sm:flex-row text-secondary-100 dark:text-gray-100/90 items-center justify-between gap-5 sm:gap-0 py-5 fixed top-0 z-10 mt-5", { "backdrop-blur-xl rounded-xl": scrolled })}>
         <Link to={"/"} className="font-extrabold text-2xl text-primary-200 flex items-center gap-2">
           <img src="/images/icon.png" alt="icon" className="w-10" />

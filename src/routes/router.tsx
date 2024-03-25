@@ -1,6 +1,7 @@
 import LayoutApp from "@layouts/LayoutApp";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
+import { UploadImage } from "@pages/UploadImage";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -12,6 +13,10 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+      {
+        path: "/upload-image",
+        element: <UploadImage />,
+      }
     ],
   },
   {

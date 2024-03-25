@@ -5,6 +5,6 @@ export const menuLinks = [
   },
   {
     route: "/upload-image",
-    label: "Subir Imágen",
+    label: "Subir Imagen",
   },
 ];

@@ -7,7 +7,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="h-[70dvh] sm:mt-10 md:mt-20 lg:mt-0 flex flex-col items-center justify-center gap-10 lg:flex-row lg:gap-0 px-10 xl:px-0 text-secondary-100 dark:text-gray-100/90 mb-10">
+    <div className="h-[70dvh] sm:mt-10 md:mt-20 lg:mt-0 flex flex-col items-center justify-center gap-10 lg:flex-row lg:gap-0 px-10 xl:px-0 text-secondary-100 dark:text-gray-100/90 mb-10 xl:mt-5">
       <div className="lg:w-2/6 flex flex-col items-center lg:items-start gap-5 lg:gap-14">
         <p className="text-4xl font-extrabold uppercase text-center lg:text-start">
           Crea tu propia paleta de colores
