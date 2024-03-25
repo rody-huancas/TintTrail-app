@@ -4,37 +4,22 @@ import classNames from "classnames";
 import { menuLinks } from "@constants/menuLinks";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
+import { useDarkMode } from "@hooks/useDarkMode";
 
 const Header = () => {
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const storedMode = localStorage.getItem("darkMode");
-    return storedMode ? JSON.parse(storedMode) : true;
-  });
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      if (window.scrollY > 80) setScrolled(true);
+      else setScrolled(false);
     };
-
+    
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    localStorage.setItem("darkMode", JSON.stringify(newMode));
-    document.body.classList.toggle("dark", newMode);
-  };
 
   return (
     <header className="w-full py-20 flex items-center justify-center">
@@ -62,7 +47,7 @@ const Header = () => {
           </a>
           <button className="text-xl" onClick={toggleDarkMode}>
             {
-              isDarkMode ? <RiSunFill /> : <RiMoonFill />
+              isDarkMode ? <RiMoonFill /> : <RiSunFill />
             }
           </button>
         </nav>
