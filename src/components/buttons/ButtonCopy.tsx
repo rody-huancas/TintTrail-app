@@ -11,7 +11,7 @@ export const ButtonCopy: React.FC<ButtonCopyProps> = ({ color }) => {
 
   return (
     <button
-      className="py-2 bg-[#0057FF] flex items-center justify-center gap-2 w-full rounded-lg"
+      className="py-2 bg-primary-200 text-white flex items-center justify-center gap-2 w-full rounded-lg"
       onClick={copyColor}
     >
       Copiar

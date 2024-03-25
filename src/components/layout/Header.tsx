@@ -1,13 +1,17 @@
-import { menuLinks } from "@constants/menuLinks";
-import classNames from "classnames";
-import { RiSunFill } from "react-icons/ri";
-import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import classNames from "classnames";
+import { menuLinks } from "@constants/menuLinks";
+import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
 
 const Header = () => {
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const storedMode = localStorage.getItem("darkMode");
+    return storedMode ? JSON.parse(storedMode) : true;
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,10 +29,17 @@ const Header = () => {
     };
   }, []);
 
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem("darkMode", JSON.stringify(newMode));
+    document.body.classList.toggle("dark", newMode);
+  };
+
   return (
-    <header className="w-full py-16 flex items-center justify-center">
-      <div className={classNames("max-w-6xl w-full px-5 flex items-center justify-between py-5 fixed top-0 z-10 mt-5", { "backdrop-blur-xl rounded-xl": scrolled })}>
-        <Link to={"/"} className="font-extrabold text-2xl text-[#80aaff] flex items-center gap-2">
+    <header className="w-full py-20 flex items-center justify-center">
+      <div className={classNames("max-w-6xl w-full px-5 flex flex-col sm:flex-row text-secondary-100 dark:text-gray-100/90 items-center justify-between gap-5 sm:gap-0 py-5 fixed top-0 z-10 mt-5", { "backdrop-blur-xl rounded-xl": scrolled })}>
+        <Link to={"/"} className="font-extrabold text-2xl text-primary-200 flex items-center gap-2">
           <img src="/images/icon.png" alt="icon" className="w-10" />
           TintTrail
         </Link>
@@ -38,7 +49,7 @@ const Header = () => {
             {menuLinks.map((link) => {
               const isActive = pathname === link.route;
               return (
-                <li key={link.label} className={classNames("rounded-lg hover:text-[#80aaff] transition", { "text-[#80aaff] font-medium": isActive })}>
+                <li key={link.label} className={classNames("rounded-lg hover:text-primary-200 dark:hover:text-primary-100 transition", { "text-primary-200 dark:text-primary-100 font-medium": isActive })}>
                   <NavLink to={link.route} className="flex gap-4 items-center">
                     {link.label}
                   </NavLink>
@@ -49,8 +60,10 @@ const Header = () => {
           <a href="https://github.com/rody-huancas/TintTrail-app" target="_blank" className="text-xl">
             <FaGithub />
           </a>
-          <button className="text-xl">
-            <RiSunFill />
+          <button className="text-xl" onClick={toggleDarkMode}>
+            {
+              isDarkMode ? <RiSunFill /> : <RiMoonFill />
+            }
           </button>
         </nav>
       </div>
