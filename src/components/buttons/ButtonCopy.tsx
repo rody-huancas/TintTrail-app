@@ -5,8 +5,8 @@ import { toast } from "sonner";
 export const ButtonCopy: React.FC<ButtonCopyProps> = ({ color }) => {
 
   const copyColor = () => {
-    navigator.clipboard.writeText(color);
-    toast.success(`El color ${color} se ha copiado correctamente`)
+    navigator.clipboard.writeText(color.toUpperCase());
+    toast.success(`El color ${color.toUpperCase()} se ha copiado correctamente`)
   };
 
   return (
