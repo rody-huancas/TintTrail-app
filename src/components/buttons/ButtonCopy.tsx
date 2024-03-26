@@ -13,6 +13,7 @@ export const ButtonCopy: React.FC<ButtonCopyProps> = ({ color }) => {
     <button
       className="py-2 bg-primary-200 text-white flex items-center justify-center gap-2 w-full rounded-lg"
       onClick={copyColor}
+      aria-label="Copiar el color"
     >
       Copiar
       <IoIosCopy />

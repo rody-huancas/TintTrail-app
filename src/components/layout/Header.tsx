@@ -25,7 +25,7 @@ const Header = () => {
     <header className="w-full py-20 sm:py-14 flex items-center justify-center">
       <div className={classNames("max-w-6xl w-full px-5 flex flex-col sm:flex-row text-secondary-100 dark:text-gray-100/90 items-center justify-between gap-5 sm:gap-0 py-5 fixed top-0 z-10 mt-5", { "backdrop-blur-xl rounded-xl": scrolled })}>
         <Link to={"/"} className="font-extrabold text-2xl text-primary-200 flex items-center gap-2">
-          <img src="/images/icon.png" alt="icon" className="w-10" />
+          <img src="/images/icon.png" alt="icon" className="w-10 h-auto" />
           TintTrail
         </Link>
 
@@ -42,13 +42,11 @@ const Header = () => {
               );
             })}
           </ul>
-          <a href="https://github.com/rody-huancas/TintTrail-app" target="_blank" className="text-xl">
+          <a href="https://github.com/rody-huancas/TintTrail-app" target="_blank" className="text-xl" aria-label="Ver repositorio en GitHub">
             <FaGithub />
           </a>
-          <button className="text-xl" onClick={toggleDarkMode}>
-            {
-              isDarkMode ? <RiMoonFill /> : <RiSunFill />
-            }
+          <button className="text-xl" onClick={toggleDarkMode} aria-label="Cambiar tema claro/oscuro">
+            {isDarkMode ? <RiMoonFill /> : <RiSunFill />}
           </button>
         </nav>
       </div>

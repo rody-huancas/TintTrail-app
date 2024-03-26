@@ -12,7 +12,7 @@ const Hero = () => {
         <p className="text-4xl font-extrabold uppercase text-center lg:text-start">
           Crea tu propia paleta de colores
         </p>
-        <button onClick={handleScrollToSelectColor} className="bg-blue-600 text-gray-100 px-5 py-4 rounded hover:bg-blue-700 transition-colors duration-500">
+        <button onClick={handleScrollToSelectColor} className="bg-blue-600 text-gray-100 px-5 py-4 rounded hover:bg-blue-700 transition-colors duration-500" aria-label="Ir a sección para seleccionar colores">
           Genera tu paleta de colores
         </button>
       </div>

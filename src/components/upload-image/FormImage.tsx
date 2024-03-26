@@ -34,7 +34,7 @@ export const FormImage = () => {
             <img
               src={URL.createObjectURL(acceptedFiles[0])}
               alt="image upload"
-              className="rounded-xl shadow-lg cursor-crosshair w-full md:w-1/2"
+              className="rounded-xl shadow-lg cursor-crosshair w-full md:w-1/2 h-auto"
               onClick={(event) => handleColorClick(event, setSelectedColor, setShowColorPicker)}
             />
             <div className="py-5">
@@ -67,7 +67,7 @@ export const FormImage = () => {
       <div
         {...getRootProps()}
         className={classNames(
-          "rounded-xl shadow-lg border-2 border-gray-600 p-10 border-dashed flex justify-center items-center cursor-pointer text-center"
+          "rounded-xl shadow-lg border-2 border-gray-600 px-10 py-16 border-dashed flex justify-center items-center cursor-pointer text-center mt-4"
         )}
       >
         <input {...getInputProps()} />

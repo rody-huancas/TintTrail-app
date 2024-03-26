@@ -18,7 +18,7 @@ const SelectColor = () => {
   }, [selectedColor]);
 
   return (
-    <div id="selectColor" className="flex flex-col gap-10 my-10 px-10 lg:px-0 text-secondary-100/90 dark:text-gray-100/90">
+    <div id="selectColor" className="flex flex-col gap-10 my-10 px-10 xl:px-0 text-secondary-100/90 dark:text-gray-100/90">
       <h2 className="text-center uppercase text-3xl font-black">
         Vamos a generar tu paleta de colores!
       </h2>
