@@ -38,8 +38,8 @@ const SelectColor = () => {
       </div>
 
       <h3>Ejemplos</h3>
-      <div className="grid grid-cols-3 gap-5">
-        <CardProducts primaryColor={selectedColor} secondaryColor={colorShades[colorShades.length - 1]} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-start gap-5">
+        <CardProducts primaryColor={selectedColor} secondaryColor={colorShades[1]} />
         <TaskList primaryColor={selectedColor} secondaryColor={colorShades[1]} />
         <Buttons primaryColor={selectedColor} secondaryColor={colorShades[1]} />
       </div>
