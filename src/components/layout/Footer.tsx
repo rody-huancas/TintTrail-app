@@ -2,7 +2,7 @@ import { FaCodepen, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="max-w-6xl font-medium text-lg w-full mx-auto p-10 lg:p-0 lg:py-10 flex items-center justify-between text-secondary-100 dark:text-gray-100/90">
+    <div className="max-w-6xl font-medium text-lg w-full mx-auto p-10 xl:px-10 lg:py-10 flex items-center justify-between text-secondary-100 dark:text-gray-100/90">
       <a href="https://rodyhuancas.netlify.app/" target="_blank" aria-label="Ver portafolio de Rody Huancas">
         Rody Huancas
       </a>

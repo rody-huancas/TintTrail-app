@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { calculateShades     } from "@helpers/helpers";
 import { CardColor           } from "@components/cards/CardColor";
 import { ChromePicker, ColorResult } from "react-color";
+import CardProducts from "@components/cards/CardProducts";
 import "@styles/input-select.css";
+import TaskList from "@components/cards/TaskList";
+import Buttons from "@components/cards/Buttons";
 
 const SelectColor = () => {
-  const [selectedColor, setSelectedColor] = useState("#0057FF");
+  const [selectedColor, setSelectedColor] = useState("#75A2FA");
   const [colorShades, setColorShades] = useState<string[]>([]);
 
   const handleColorChange = (color: ColorResult) => {
@@ -28,10 +31,17 @@ const SelectColor = () => {
         </span>
         <ChromePicker color={selectedColor} onChange={handleColorChange} />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-x-5 gap-y-7 bg-transparent py-5">
+      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-x-5 gap-y-7 bg-transparent py-5">
         {colorShades.map((shade, index) => (
           <CardColor key={index} shade={shade} />
         ))}
+      </div>
+
+      <h3>Ejemplos</h3>
+      <div className="grid grid-cols-3 gap-5">
+        <CardProducts primaryColor={selectedColor} secondaryColor={colorShades[colorShades.length - 1]} />
+        <TaskList primaryColor={selectedColor} secondaryColor={colorShades[1]} />
+        <Buttons primaryColor={selectedColor} secondaryColor={colorShades[1]} />
       </div>
     </div>
   );
