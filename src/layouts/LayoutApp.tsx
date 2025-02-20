@@ -5,7 +5,7 @@ const LayoutApp = () => {
   return (
     <>
       <Header />
-      <main className="max-w-6xl w-full mx-auto">
+      <main className="max-w-7xl 2xl:max-w-[1450px] w-full mx-auto">
         <Outlet />
       </main>
       <Footer />
