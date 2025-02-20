@@ -1,5 +1,6 @@
 export interface CardColorInterface {
-  shade: string;
+  name: string;
+  hex : string;
 }
 
 export interface ButtonCopyProps {
