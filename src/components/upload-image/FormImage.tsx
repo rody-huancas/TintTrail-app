@@ -1,6 +1,6 @@
-import classNames       from "classnames";
-import { ButtonCopy   } from "@components/buttons/ButtonCopy";
-import { useDropzone  } from "react-dropzone";
+import classNames from "classnames";
+import { ButtonCopy } from "@components/buttons/ButtonCopy";
+import { useDropzone } from "react-dropzone";
 import { ChromePicker } from "react-color";
 import { useState, useCallback } from "react";
 import { getOppositeColor, handleColorClick } from "@helpers/color.helper";
@@ -11,11 +11,22 @@ export const FormImage = () => {
   const [showColorPicker, setShowColorPicker] = useState<boolean>(false);
 
   const onDrop = useCallback((files: File[]) => {
-    setAcceptedFiles(files);
-    setSelectedColor(null);
+    const imageFiles = files.filter((file) =>
+      file.type.startsWith("image/")
+    );
+
+    if (imageFiles.length > 0) {
+      setAcceptedFiles(imageFiles);
+      setSelectedColor(null);
+    } else {
+      alert("Solo se permiten archivos de imagen.");
+    }
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: { "image/*": [] }
+  });
 
   const handleColorChange = (color: any) => {
     setSelectedColor(color.hex);
@@ -34,7 +45,7 @@ export const FormImage = () => {
             <img
               src={URL.createObjectURL(acceptedFiles[0])}
               alt="image upload"
-              className="rounded-xl shadow-lg cursor-crosshair w-full md:w-1/2 h-auto"
+              className="rounded-xl shadow-lg cursor-crosshair w-full md:w-3/4 h-auto"
               onClick={(event) => handleColorClick(event, setSelectedColor, setShowColorPicker)}
             />
             <div className="py-5">
@@ -70,7 +81,7 @@ export const FormImage = () => {
           "rounded-xl shadow-lg border-2 border-gray-600 px-10 py-16 border-dashed flex justify-center items-center cursor-pointer text-center mt-4"
         )}
       >
-        <input {...getInputProps()} />
+        <input {...getInputProps()} accept="image/*" />
         {isDragActive ? (
           <p className="text-md text-secondary-100/90 dark:text-gray-100/90 font-medium">
             Suelta los archivos aquí ...
