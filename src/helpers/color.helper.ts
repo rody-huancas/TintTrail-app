@@ -16,7 +16,9 @@ export const getOppositeColor = (color: string) => {
   return luminance > 0.5 ? "#000000" : "#ffffff";
 };
 
-export const handleColorClick = ( event: React.MouseEvent<HTMLImageElement>, setSelectedColor: (color: string) => void, setShowColorPicker: (value: boolean) => void ) => {
+export const handleColorClick = ( 
+  event: React.MouseEvent<HTMLImageElement>, 
+  setSelectedColor: (color: string) => void, setShowColorPicker: (value: boolean) => void ) => {
   const canvas = document.createElement("canvas");
   const img = event.target as HTMLImageElement;
   canvas.width = img.width;
