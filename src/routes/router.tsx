@@ -1,4 +1,5 @@
 import LayoutApp from "@layouts/LayoutApp";
+import { ExtractColorPalette } from "@pages/ExtractColorPalette";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 import { UploadImage } from "@pages/UploadImage";
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "/upload-image",
         element: <UploadImage />,
+      },
+      {
+        path: "/extract-color-palette",
+        element: <ExtractColorPalette />,
       }
     ],
   },
